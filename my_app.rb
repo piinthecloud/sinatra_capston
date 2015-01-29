@@ -6,6 +6,12 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
+  post "/" do
+    erb :index
+  end
 
-  # This is where your code will go
+  get "/form" do
+    erb :form
+  end
+
 end
