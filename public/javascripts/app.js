@@ -1,28 +1,5 @@
 $(document).ready(function() {
-     var request =  $.ajax({
-          url: 'http://localhost:3000',
-          type: 'GET',
-          dataType: 'json',
-          contentType: "application/json",
-          success: function(data){
 
-
-            $(request.responseJSON).each(function(x,y){
-              var circleMarker =
-              L.circleMarker([y.lat , y.lng], {
-                radius: 5,
-                fillColor: "#f03",
-                color: "#000",
-                weight: 2,
-                opacity: .4,
-                fillOpacity: 0.2
-              })
-              .addTo(map)
-              .bindPopup("<p>" + y.city + "</p>");
-            });
-          }
-
-        })
 
         var geo =  $.ajax({
              url: 'http://localhost:3000/geodata',
@@ -30,6 +7,35 @@ $(document).ready(function() {
              dataType: 'json',
              contentType: "application/json",
              success: function(data){
+
+               var request =  $.ajax({
+                    url: 'http://localhost:3000/city',
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: "application/json",
+                    success: function(data){
+
+
+                      $.each(request.responseJSON, function(i, val){
+                      // $(request.responseJSON).each(function(index, value){
+                        // console.log(val.loc);
+
+
+                        var circleMarker =
+                        L.circleMarker( val.loc , {
+                          radius: 10,
+                          fillColor: "#f03",
+                          color: "#000",
+                          weight: 2,
+                          opacity: .4,
+                          fillOpacity: 0.2
+                        })
+                        .addTo(map)
+                        // .bindPopup("<p>" + value.city + "</p>");
+                      });
+                    }
+
+                  })
 
                var statesData = data
 
@@ -76,14 +82,8 @@ $(document).ready(function() {
                   onEachFeature: onEachFeature
                 }).addTo(map);
 
-
-
-
-
                }
              })
-
-
 
 
 
