@@ -51,34 +51,11 @@ $(document).ready(function() {
 
           map.addLayer(markers);
 
-          $( "#aa" ).click(function() {
+          $( "ul.dropdown-menu li" ).click(function(event) {
+
             map.removeLayer(markers);
 
-            plotPoints(request.responseJSON)
-
-            // $.each(request.responseJSON,
-            //   function(i, val){
-            //     if (val.race === "Black or African American"){
-            //
-            //       var circleMarker =
-            //       L.circleMarker(
-            //         [val.lat, val.lng] , {
-            //           radius: 10,
-            //           fillColor: "#f03",
-            //           color: "#000",
-            //           weight: 2,
-            //           opacity: .4,
-            //           fillOpacity: 0.2
-            //         })
-            //         .addTo(map)
-            //
-            //         .bindPopup(
-            //           "<p>City: " + val.city + "</p>"
-            //           +"<p>Race: " + val.race + "</p>"
-            //           +"<p>Date: " + val.date_searched + "</p>"
-            //           +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>")}
-            //         })
-            //
+            plotPoints(request.responseJSON, event.currentTarget.innerText.split('\n')[0])
 
 
           });
@@ -137,10 +114,11 @@ $(document).ready(function() {
   var map = L.map('map').setView([37.8, -96], 4);
   map.addLayer(layer);
 
-  function plotPoints(data) {
+  function plotPoints(data, input) {
     $.each(data,
     function(i, val){
-      if (val.race === "Black or African American"){
+      if (val.race === input){
+
 
         var circleMarker =
         L.circleMarker(
