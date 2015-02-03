@@ -1,3 +1,8 @@
+body {
+  margin: 20px;
+
+}
+
 #map {
    width: 780px;
    height: 480px;
