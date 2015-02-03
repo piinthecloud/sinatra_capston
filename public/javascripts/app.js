@@ -9,33 +9,45 @@ $(document).ready(function() {
              success: function(data){
 
                var request =  $.ajax({
-                    url: 'http://localhost:3000/city',
+                    url: 'http://localhost:3000/',
                     type: 'GET',
                     dataType: 'json',
                     contentType: "application/json",
                     success: function(data){
 
+                      var markers = new L.MarkerClusterGroup();
 
                       $.each(request.responseJSON, function(i, val){
-                      // $(request.responseJSON).each(function(index, value){
-                        // console.log(val.loc);
 
+                        markers.addLayer(new L.circleMarker
+                          ( [val.lat, val.lng] , {
+                            radius: 10,
+                            fillColor: "#f03",
+                            color: "#000",
+                            weight: 2,
+                            opacity: .4,
+                            fillOpacity: 0.2
+                        }));
 
-                        var circleMarker =
-                        L.circleMarker( val.loc , {
-                          radius: 10,
-                          fillColor: "#f03",
-                          color: "#000",
-                          weight: 2,
-                          opacity: .4,
-                          fillOpacity: 0.2
-                        })
-                        .addTo(map)
+                        // var circleMarker =
+                        // L.circleMarker( [val.lat, val.lng] , {
+                        //   radius: 10,
+                        //   fillColor: "#f03",
+                        //   color: "#000",
+                        //   weight: 2,
+                        //   opacity: .4,
+                        //   fillOpacity: 0.2
+                        // })
+                        // .addTo(map)
                         // .bindPopup("<p>" + value.city + "</p>");
                       });
+
+                      map.addLayer(markers);
                     }
 
                   })
+
+
 
                var statesData = data
 
@@ -87,10 +99,14 @@ $(document).ready(function() {
 
 
 
+
+
+
         var layer = new L.StamenTileLayer("toner");
+
+
         var map = L.map('map').setView([37.8, -96], 4);
   map.addLayer(layer);
-
 
 
 
