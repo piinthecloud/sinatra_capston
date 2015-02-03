@@ -54,29 +54,31 @@ $(document).ready(function() {
           $( "#aa" ).click(function() {
             map.removeLayer(markers);
 
-            $.each(request.responseJSON,
-              function(i, val){
-                if (val.race === "Black or African American"){
+            plotPoints(request.responseJSON)
 
-                  var circleMarker =
-                  L.circleMarker(
-                    [val.lat, val.lng] , {
-                      radius: 10,
-                      fillColor: "#f03",
-                      color: "#000",
-                      weight: 2,
-                      opacity: .4,
-                      fillOpacity: 0.2
-                    })
-                    .addTo(map)
-
-                    .bindPopup(
-                      "<p>City: " + val.city + "</p>"
-                      +"<p>Race: " + val.race + "</p>"
-                      +"<p>Date: " + val.date_searched + "</p>"
-                      +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>")}
-                    })
-
+            // $.each(request.responseJSON,
+            //   function(i, val){
+            //     if (val.race === "Black or African American"){
+            //
+            //       var circleMarker =
+            //       L.circleMarker(
+            //         [val.lat, val.lng] , {
+            //           radius: 10,
+            //           fillColor: "#f03",
+            //           color: "#000",
+            //           weight: 2,
+            //           opacity: .4,
+            //           fillOpacity: 0.2
+            //         })
+            //         .addTo(map)
+            //
+            //         .bindPopup(
+            //           "<p>City: " + val.city + "</p>"
+            //           +"<p>Race: " + val.race + "</p>"
+            //           +"<p>Date: " + val.date_searched + "</p>"
+            //           +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>")}
+            //         })
+            //
 
 
           });
@@ -134,6 +136,33 @@ $(document).ready(function() {
   var layer = new L.StamenTileLayer("toner");
   var map = L.map('map').setView([37.8, -96], 4);
   map.addLayer(layer);
+
+  function plotPoints(data) {
+    $.each(data,
+    function(i, val){
+      if (val.race === "Black or African American"){
+
+        var circleMarker =
+        L.circleMarker(
+          [val.lat, val.lng] , {
+            radius: 10,
+            fillColor: "#f03",
+            color: "#000",
+            weight: 2,
+            opacity: .4,
+            fillOpacity: 0.2
+          })
+          .addTo(map)
+
+          .bindPopup(
+            "<p>City: " + val.city + "</p>"
+            +"<p>Race: " + val.race + "</p>"
+            +"<p>Date: " + val.date_searched + "</p>"
+            +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>"
+          )
+        }
+      })
+    }
 
 
 
