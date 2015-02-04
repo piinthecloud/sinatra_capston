@@ -4,6 +4,7 @@ class MyApp < Sinatra::Base
 
   get "/" do
     erb :index
+
   end
 
   post "/" do
@@ -12,6 +13,10 @@ class MyApp < Sinatra::Base
 
   get "/form" do
     erb :form
+  end
+
+  get "/about" do
+    erb :about
   end
 
 end

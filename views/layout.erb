@@ -1,9 +1,9 @@
 <html>
 <head>
 <script src="/javascripts/jquery-2.1.1.min.js"></script>
-<!--  <script src="/javascripts/app.js"></script>
+<script src="/javascripts/app.js"></script>
 
--->
+
 <!-- STYLE -->
 <link rel="stylesheet" href="/bootstrap.min.css" />
 <link rel="stylesheet" href="/bootstrap-responsive.min.css" />
@@ -24,25 +24,16 @@
 <script src="/javascripts/leaflet.markercluster-src.js"></script>
 
 
-
-
-
-
-
-
-
 </head>
 
-
-
-
-
 <body>
+  <!-- if current url  matches one tab, give it a class of active -->
   <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="/">Home</a></li>
-    <li role="presentation"><a href="/form">Profile</a></li>
-    <li role="presentation"><a href="/about">Messages</a></li>
+    <li role="presentation" ><a href="/form">Contribute</a></li>
+    <li role="presentation" ><a href="/about">About</a></li>
   </ul>
+
 
   <%= yield %>
 

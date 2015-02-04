@@ -12,6 +12,13 @@ body {
 
 }
 
+#info {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: -30px;
+
+}
+
 .dropdown-menu {
   z-index: 1100;
 }

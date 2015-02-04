@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   var geo =  $.ajax({
     url: 'http://localhost:3000/geodata',
     type: 'GET',
@@ -31,24 +30,13 @@ $(document).ready(function() {
               opacity: .7,
               fillOpacity: 0.8
             })
-
             .bindPopup(
               "<p>City: " + val.city + "</p>"
               +"<p>Race: " + val.race + "</p>"
               +"<p>Date: " + val.date_searched + "</p>"
               +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>")
             );
-            // var circleMarker =
-            // L.circleMarker( [val.lat, val.lng] , {
-            //   radius: 10,
-            //   fillColor: "#f03",
-            //   color: "#000",
-            //   weight: 2,
-            //   opacity: .4,
-            //   fillOpacity: 0.2
-            // })
-            // .addTo(map)
-            //
+
           });
 
           map.addLayer(markers);
@@ -58,12 +46,10 @@ $(document).ready(function() {
             map.removeLayer(markers);
             markersTwo.clearLayers();
 
-            plotPoints(request.responseJSON, event.currentTarget.innerText.split('\n')[0])
-
-
+            plotPoints(request.responseJSON,
+              event.currentTarget.innerText.split('\n')[0])
 
           });
-          // //////////////////////////////////////////////////
         }
       })
 
@@ -114,6 +100,8 @@ $(document).ready(function() {
     }
   })
 
+
+
   var layer = new L.StamenTileLayer("toner");
   var map = L.map('map').setView([37.8, -96], 4);
   map.addLayer(layer);
@@ -142,54 +130,34 @@ $(document).ready(function() {
       +"<p>Race: " + val.race + "</p>"
       +"<p>Date: " + val.date_searched + "</p>"
       +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>"
-      +"<p>Hit or Killed? " + val["latino?"] + "</p>")
+      )
     );
 
   }
 
-  function plotPoints(data, input) {
-    // map.removeLayer(markersTwo);
+  function addInfo(info){
+    $( "#info" ).html( "<strong>"+ info +"</strong>");
+  }
 
+  function resetMarkers(val){
+    drawMarkers(val);
+    map.addLayer(markersTwo);
+  }
+
+  function plotPoints(data, input) {
+    addInfo(input)
     $.each(data,
       function(i, val){
-
-        if (input === "White"
-            && val["latino?"] === "Not of Hispanic or Latino origin"
-            && val.race === input){
-          drawMarkers(val);
-          map.addLayer(markersTwo);
+        if (input === val.race_ethnicity)
+        {
+          resetMarkers(val);
         }
 
-        else if (input === "Black or African American"
-        && val.race === input){
-          drawMarkers(val);
-          map.addLayer(markersTwo);
-        }
-        else if (input === "Hispanic or Latino origin"
-        && val["latino?"] === input){
-          drawMarkers(val);
-          map.addLayer(markersTwo);
-        }
-        else if (input === "Unknown"
-        && input === val.race
-        && val["latino?"] === "Not of Hispanic or Latino origin" ){
-          drawMarkers(val);
-          map.addLayer(markersTwo);
-        }
-        else if (input === val.race && input === "Asian"){
-          drawMarkers(val);
-          map.addLayer(markersTwo);
-        }
-
-        else if (input === val.race && input === "American Indian or Alaska Native"){
-          drawMarkers(val);
-          map.addLayer(markersTwo);
-        }
-
-      })
-    }
+    })
+  }
 
 
 
 
-  });
+
+});
