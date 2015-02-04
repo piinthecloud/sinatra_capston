@@ -141,7 +141,8 @@ $(document).ready(function() {
       "<p>City: " + val.city + "</p>"
       +"<p>Race: " + val.race + "</p>"
       +"<p>Date: " + val.date_searched + "</p>"
-      +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>")
+      +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>"
+      +"<p>Hit or Killed? " + val["latino?"] + "</p>")
     );
 
   }
@@ -153,26 +154,34 @@ $(document).ready(function() {
       function(i, val){
 
         if (input === "White"
-            && val.race === input
-            && val["latino?"] === "Not of Hispanic or Latino origin"){
-          drawMarkers(val);
-          map.addLayer(markersTwo);
-
-
-        }
-        else if (input === "Black or African American"
+            && val["latino?"] === "Not of Hispanic or Latino origin"
             && val.race === input){
           drawMarkers(val);
           map.addLayer(markersTwo);
         }
 
-        else if (input === "Hispanic or Latino origin" && val["latino?"] === input){
+        else if (input === "Black or African American"
+        && val.race === input){
+          drawMarkers(val);
+          map.addLayer(markersTwo);
+        }
+        else if (input === "Hispanic or Latino origin"
+        && val["latino?"] === input){
+          drawMarkers(val);
+          map.addLayer(markersTwo);
+        }
+        else if (input === "Unknown"
+        && input === val.race
+        && val["latino?"] === "Not of Hispanic or Latino origin" ){
+          drawMarkers(val);
+          map.addLayer(markersTwo);
+        }
+        else if (input === val.race && input === "Asian"){
           drawMarkers(val);
           map.addLayer(markersTwo);
         }
 
-        else if (input === "Unknown" && input === val.race && val["latino?"] === "Not of Hispanic or Latino origin" ){
-          console.log(val.race, input)
+        else if (input === val.race && input === "American Indian or Alaska Native"){
           drawMarkers(val);
           map.addLayer(markersTwo);
         }
