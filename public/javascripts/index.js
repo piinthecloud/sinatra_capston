@@ -23,30 +23,32 @@ $(document).ready(function() {
           });
 
           $.each(request.responseJSON, function(i, val){
-              markers.addLayer(new L.circleMarker( [val.lat, val.lng], {
-                radius: 5,
-                fillColor: "#f03",
-                color: "#000",
-                weight: 2,
-                opacity: .7,
-                fillOpacity: 0.8
-              }) .bindPopup(
-                "<p>City: " + val.city + "</p>"
-                +"<p>Race: " + val.race + "</p>"
-                +"<p>Date: " + val.date_searched + "</p>"
-                +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>")
-              );
-                // var circleMarker =
-                // L.circleMarker( [val.lat, val.lng] , {
-                //   radius: 10,
-                //   fillColor: "#f03",
-                //   color: "#000",
-                //   weight: 2,
-                //   opacity: .4,
-                //   fillOpacity: 0.2
-                // })
-                // .addTo(map)
-                //
+            markers.addLayer(new L.circleMarker( [val.lat, val.lng], {
+              radius: 5,
+              fillColor: "#f03",
+              color: "#000",
+              weight: 2,
+              opacity: .7,
+              fillOpacity: 0.8
+            })
+
+            .bindPopup(
+              "<p>City: " + val.city + "</p>"
+              +"<p>Race: " + val.race + "</p>"
+              +"<p>Date: " + val.date_searched + "</p>"
+              +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>")
+            );
+            // var circleMarker =
+            // L.circleMarker( [val.lat, val.lng] , {
+            //   radius: 10,
+            //   fillColor: "#f03",
+            //   color: "#000",
+            //   weight: 2,
+            //   opacity: .4,
+            //   fillOpacity: 0.2
+            // })
+            // .addTo(map)
+            //
           });
 
           map.addLayer(markers);
@@ -54,12 +56,14 @@ $(document).ready(function() {
           $( "ul.dropdown-menu li" ).click(function(event) {
 
             map.removeLayer(markers);
+            markersTwo.clearLayers();
 
             plotPoints(request.responseJSON, event.currentTarget.innerText.split('\n')[0])
 
 
+
           });
-                  // //////////////////////////////////////////////////
+          // //////////////////////////////////////////////////
         }
       })
 
@@ -91,7 +95,7 @@ $(document).ready(function() {
 
       L.geoJson(statesData,{style:style}).addTo(map);
 
-        // click to zoom on state
+      // click to zoom on state
       function zoomToFeature(e){
         map.fitBounds(e.target.getBounds());
       }
@@ -114,34 +118,69 @@ $(document).ready(function() {
   var map = L.map('map').setView([37.8, -96], 4);
   map.addLayer(layer);
 
+
+
+
+  var markersTwo = new L.MarkerClusterGroup({
+    maxClusterRadius: 30,
+    spiderfyOnMaxZoom: true,
+    showCoverageOnHover: false,
+    zoomToBoundsOnClick: true
+  });
+
+  function drawMarkers(val){
+    markersTwo.addLayer(new L.circleMarker( [val.lat, val.lng], {
+      radius: 5,
+      fillColor: "#f03",
+      color: "#000",
+      weight: 2,
+      opacity: .7,
+      fillOpacity: 0.8
+    })
+    .bindPopup(
+      "<p>City: " + val.city + "</p>"
+      +"<p>Race: " + val.race + "</p>"
+      +"<p>Date: " + val.date_searched + "</p>"
+      +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>")
+    );
+
+  }
+
   function plotPoints(data, input) {
+    // map.removeLayer(markersTwo);
+
     $.each(data,
-    function(i, val){
-      if (val.race === input){
+      function(i, val){
+
+        if (input === "White"
+            && val.race === input
+            && val["latino?"] === "Not of Hispanic or Latino origin"){
+          drawMarkers(val);
+          map.addLayer(markersTwo);
 
 
-        var circleMarker =
-        L.circleMarker(
-          [val.lat, val.lng] , {
-            radius: 10,
-            fillColor: "#f03",
-            color: "#000",
-            weight: 2,
-            opacity: .4,
-            fillOpacity: 0.2
-          })
-          .addTo(map)
-
-          .bindPopup(
-            "<p>City: " + val.city + "</p>"
-            +"<p>Race: " + val.race + "</p>"
-            +"<p>Date: " + val.date_searched + "</p>"
-            +"<p>Hit or Killed? " + val["hit_killed?"] + "</p>"
-          )
         }
+        else if (input === "Black or African American"
+            && val.race === input){
+          drawMarkers(val);
+          map.addLayer(markersTwo);
+        }
+
+        else if (input === "Hispanic or Latino origin" && val["latino?"] === input){
+          drawMarkers(val);
+          map.addLayer(markersTwo);
+        }
+
+        else if (input === "Unknown" && input === val.race && val["latino?"] === "Not of Hispanic or Latino origin" ){
+          console.log(val.race, input)
+          drawMarkers(val);
+          map.addLayer(markersTwo);
+        }
+
       })
     }
 
 
 
-});
+
+  });
