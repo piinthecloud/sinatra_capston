@@ -1,30 +1,35 @@
 <html>
 <head>
+
+
 <script src="/javascripts/jquery-2.1.1.min.js"></script>
 <script src="/javascripts/app.js"></script>
 
 
-<!-- STYLE -->
-<link rel="stylesheet" href="/bootstrap.min.css" />
-<link rel="stylesheet" href="/bootstrap-responsive.min.css" />
-<link rel = "stylesheet" href="/style.css" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/style.css" />
 
 <!-- MAP -->
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <link rel="stylesheet" href="/MarkerCluster.css" />
 <link rel="stylesheet" href="/MarkerCluster.Default.css" />
-
-<!-- JS STYLE -->
-<script src="/javascripts/bootstrap.min.js"></script>
-
-
-<!-- JS MAP -->
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
 <script src="/javascripts/leaflet.markercluster-src.js"></script>
 
+<!-- D3 STUFF -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
+
 
 <body>
   <!-- if current url  matches one tab, give it a class of active -->
@@ -35,7 +40,8 @@
   </ul>
 
 
-  <%= yield %>
+    <%= yield %>
+
 
 </body>
 </html>
