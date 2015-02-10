@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   var geo =  $.ajax({
     url: 'http://localhost:3000/geodata',
+    // url: 'http://54.213.76.49/geodata',
     type: 'GET',
     dataType: 'json',
     contentType: "application/json",
@@ -9,6 +10,7 @@ $(document).ready(function() {
 
       var request =  $.ajax({
         url: 'http://localhost:3000/',
+        // url: 'http://54.213.76.49/',
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
@@ -48,7 +50,9 @@ $(document).ready(function() {
             markersTwo.clearLayers();
 
             plotPoints(request.responseJSON,
-              event.currentTarget.innerText.split('\n')[0])
+
+            $(event.target).text().split('\n')[0])
+
 
           });
         }
@@ -151,6 +155,7 @@ $(document).ready(function() {
     var input1 = input;
     $.ajax({
     url: 'http://localhost:3000/race',
+    // url: 'http://54.213.76.49/race',
     type: 'GET',
     dataType: 'json',
     contentType: "application/json",
