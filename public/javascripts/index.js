@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+///////
   var geo =  $.ajax({
     url: 'http://localhost:3000/geodata',
     // url: 'http://54.213.76.49/geodata',
