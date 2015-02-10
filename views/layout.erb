@@ -33,11 +33,25 @@
 
 <body>
   <!-- if current url  matches one tab, give it a class of active -->
-  <ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a href="/">Home</a></li>
-    <li role="presentation" ><a href="/form">Contribute</a></li>
-    <li role="presentation" ><a href="/about">About</a></li>
-  </ul>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img id="brand_image" alt="Brand" src="img/brand.png">
+      </a>
+
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/form">Contribute</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
 
 
     <%= yield %>

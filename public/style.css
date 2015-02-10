@@ -20,6 +20,18 @@ body {
 
 }
 
+#brand_image {
+  margin-top: -15px;
+  height: 50px;
+
+
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+
+  margin-left: -30px;
+}
+
 .dropdown-menu {
 
   z-index: 1100;
