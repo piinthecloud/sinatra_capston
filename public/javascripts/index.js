@@ -173,8 +173,8 @@ $(document).ready(function() {
   function addGenderInfo(input){
     var input1 = input;
     $.ajax({
-    // url: 'http://localhost:3000/race',
-    url: 'http://localhost:3000/gender',
+    // url: 'http://localhost:3000/gender',
+    url: 'http://54.213.76.49/gender',
     type: 'GET',
     dataType: 'json',
     contentType: "application/json",
