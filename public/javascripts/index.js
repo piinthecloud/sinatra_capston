@@ -170,12 +170,37 @@ $(document).ready(function() {
     })
   }
 
+  function addGenderInfo(input){
+    var input1 = input;
+    $.ajax({
+    // url: 'http://localhost:3000/race',
+    url: 'http://localhost:3000/gender',
+    type: 'GET',
+    dataType: 'json',
+    contentType: "application/json",
+    success:function(genderdata, input1){
+        $.each(genderdata, function(i, val){
+          if (i === input){
+            $( "#panel-home" ).html(
+              "<strong>Number of Incidents: "+ val.length +"</strong>");
+          }
+        })
+      }
+    })
+  }
+
+
   function plotPoints(data, input) {
     addPanelInfo(input)
+    addGenderInfo(input)
     addInfo(input)
     $.each(data,
       function(i, val){
         if (input === val.race_ethnicity)
+        {
+          resetMarkers(val);
+        }
+        else if (input === val.victim_gender)
         {
           resetMarkers(val);
         }
