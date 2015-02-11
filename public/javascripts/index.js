@@ -9,8 +9,8 @@ $(document).ready(function() {
     success: function(data){
 
       var request =  $.ajax({
-        url: 'http://localhost:3000/',
-        // url: 'http://54.213.76.49/',
+        // url: 'http://localhost:3000/',
+        url: 'http://54.213.76.49/',
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
