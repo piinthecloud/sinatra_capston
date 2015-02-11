@@ -205,7 +205,9 @@ $(document).ready(function() {
     $.each(data, function(i, val){
       if (val.victim_gender === input){
         x++
-        $( "#panel-home" ).html("<strong>Number of Incidents: "+ x +"</strong>"
+        $( "#panel-home" ).html(
+          "<p><strong>Number of Incidents: "+ x +"</strong></p>"
+          // +"<p><strong>Number of blah: "+ x +"</strong></p>"
         );
       }
     })

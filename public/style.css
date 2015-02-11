@@ -43,8 +43,12 @@ body {
   margin-top: 10px;
 }
 
+.dropdown#last {
+  margin-bottom: 20px;
+}
+
 .map-info {
-  margin-top: 90px;
+  margin-top: 50px;
 }
 
 .panel#home {
