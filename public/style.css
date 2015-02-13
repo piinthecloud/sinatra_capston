@@ -6,8 +6,10 @@ body {
 }
 
 #map {
-   width: 780px;
-   height: 480px;
+   /*width: 780px;
+   height: 480px;*/
+   height: 100%;
+
    border: 2px;
    border-color: grey;
    /*margin-top: 90px;*/
