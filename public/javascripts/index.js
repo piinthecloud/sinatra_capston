@@ -35,6 +35,7 @@ $(document).ready(function() {
             })
             .bindPopup(
               "<img class='pop_image' src="+ val.image + ">"
+              +"<p>" + val.victim_name + "</p>"
               +"<div class='pop'>"
               +"<p>City: " + val.city + "</p>"
               +"<p>Race: " + val.race + "</p>"
@@ -138,6 +139,7 @@ $(document).ready(function() {
     .bindPopup(
       "<img class='pop_image' src="+ val.image + ">"
       +"<div class='pop'>"
+      +"<p>" + val.victim_name + "</p>"
       +"<p>City: " + val.city + "</p>"
       +"<p>Race: " + val.race + "</p>"
       +"<p>Date: " + val.date_searched + "</p>"
