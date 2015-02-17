@@ -52,11 +52,8 @@ $(document).ready(function() {
 
             map.removeLayer(markers);
             markersTwo.clearLayers();
-
             plotPoints(request.responseJSON,
-
             $(event.target).text().split('\n')[0])
-
 
           });
 
@@ -64,6 +61,7 @@ $(document).ready(function() {
 
             map.addLayer(markers);
             addNumInfo(data);
+            $( "#info" ).html("All Incidents");
 
           });
 
@@ -159,7 +157,7 @@ $(document).ready(function() {
   }
 
   function addInfo(info){
-    $( "#info" ).html( "<strong>"+ info +"</strong>");
+    $( "#info" ).html( info );
   }
 
   function addNumInfo(info){
