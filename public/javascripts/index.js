@@ -9,8 +9,8 @@ $(document).ready(function() {
     success: function(data){
 
       var request =  $.ajax({
-        // url: 'http://localhost:3000/',
-        url: 'http://54.213.76.49/',
+        url: 'http://localhost:3000/',
+        // url: 'http://54.213.76.49/',
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
@@ -34,10 +34,13 @@ $(document).ready(function() {
               fillOpacity: 0.8
             })
             .bindPopup(
-              "<p>City: " + val.city + "</p>"
+              "<img class='pop_image' src="+ val.image + ">"
+              +"<div class='pop'>"
+              +"<p>City: " + val.city + "</p>"
               +"<p>Race: " + val.race + "</p>"
               +"<p>Date: " + val.date_searched + "</p>"
-              +"<p>Gender: " + val.victim_gender + "</p>")
+              +"<p>Gender: " + val.victim_gender + "</p>"
+              +"</div>")
             );
 
           });
@@ -151,43 +154,7 @@ $(document).ready(function() {
     map.addLayer(markersTwo);
   }
 
-  // function addPanelInfo(input){
-  //   var input1 = input;
-  //   $.ajax({
-  //   url: 'http://localhost:3000/race',
-  //   // url: 'http://54.213.76.49/race',
-  //   type: 'GET',
-  //   dataType: 'json',
-  //   contentType: "application/json",
-  //   success:function(racedata, input1){
-  //       $.each(racedata, function(i, val){
-  //         if (i === input){
-  //           $( "#panel-home" ).html(
-  //             "<strong>Number of Incidents: "+ val.length +"</strong>");
-  //         }
-  //       })
-  //     }
-  //   })
-  // }
 
-  // function addGenderInfo(input){
-  //   var input1 = input;
-  //   $.ajax({
-  //   // url: 'http://localhost:3000/gender',
-  //   url: 'http://54.213.76.49/gender',
-  //   type: 'GET',
-  //   dataType: 'json',
-  //   contentType: "application/json",
-  //   success:function(genderdata, input1){
-  //       $.each(genderdata, function(i, val){
-  //         if (i === input){
-  //           $( "#panel-home" ).html(
-  //             "<strong>Number of Incidents: "+ val.length +"</strong>");
-  //         }
-  //       })
-  //     }
-  //   })
-  // }
   function addPanelInfoLocal(data, input){
     var x = 0
     $.each(data, function(i, val){
@@ -201,19 +168,16 @@ $(document).ready(function() {
 
 
   function addGenderInfoLocal(data, input){
-    var x = 0
+    var totalNum = 0
     $.each(data, function(i, val){
       if (val.victim_gender === input){
-        x++
+        totalNum++
         $( "#panel-home" ).html(
-          "<p><strong>Number of Incidents: "+ x +"</strong></p>"
-          // +"<p><strong>Number of blah: "+ x +"</strong></p>"
+          "<p><strong>Number of Incidents: "+ totalNum +"</strong></p>"
         );
       }
     })
   }
-
-
 
 
   function plotPoints(data, input) {
@@ -240,9 +204,5 @@ $(document).ready(function() {
       }
     )
   }
-
-
-
-
 
 });
