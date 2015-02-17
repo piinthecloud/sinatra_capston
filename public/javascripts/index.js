@@ -15,7 +15,7 @@ $(document).ready(function() {
         dataType: 'json',
         contentType: "application/json",
         success: function(data){
-          $( "#panel-home" ).html( "<strong>Number of Incidents: "+ data.length +"</strong>");
+          addNumInfo(data);
 
           var markers = new L.MarkerClusterGroup({
             maxClusterRadius: 30,
@@ -59,6 +59,15 @@ $(document).ready(function() {
 
 
           });
+
+          $( "#clear_data" ).click(function(event) {
+
+            map.addLayer(markers);
+            addNumInfo(data);
+
+          });
+
+
         }
       })
 
@@ -151,6 +160,12 @@ $(document).ready(function() {
 
   function addInfo(info){
     $( "#info" ).html( "<strong>"+ info +"</strong>");
+  }
+
+  function addNumInfo(info){
+
+  $( "#panel-home" ).html( "<strong>Number of Incidents: "+ info.length +"</strong>");
+
   }
 
   function resetMarkers(val){
