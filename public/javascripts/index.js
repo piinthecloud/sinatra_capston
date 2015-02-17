@@ -136,11 +136,13 @@ $(document).ready(function() {
       fillOpacity: 0.8
     })
     .bindPopup(
-      "<p>City: " + val.city + "</p>"
+      "<img class='pop_image' src="+ val.image + ">"
+      +"<div class='pop'>"
+      +"<p>City: " + val.city + "</p>"
       +"<p>Race: " + val.race + "</p>"
       +"<p>Date: " + val.date_searched + "</p>"
       +"<p>Gender: " + val.victim_gender + "</p>"
-      )
+      +"</div>")
     );
 
   }
