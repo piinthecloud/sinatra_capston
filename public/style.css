@@ -1,8 +1,43 @@
 
 body {
   margin: 20px;
+}
+
+.help_text{
+  margin: 40px;
+}
+
+.fwrapper{
+  margin: 40px;
+}
+
+.ss-q-title{
+  margin-top: 15px;
+}
+.ss-secondary-text {
+  color: grey;
+  font-weight: 200;
+  font-size: small;
 
 
+}
+
+.form-inline .form-control{
+  display: block;
+
+}
+
+.ss-required-asterisk {
+  color: red;
+
+}
+
+ul ul, ol ul {
+list-style-type: none;
+}
+
+button#form_submit {
+margin-top: 35px;
 }
 
 #map {
