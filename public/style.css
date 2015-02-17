@@ -5,10 +5,12 @@ body {
 
 .help_text{
   margin: 40px;
+  max-width: 1000px;
 }
 
 .fwrapper{
   margin: 40px;
+  max-width: 500px;
 }
 
 .ss-q-title{
@@ -18,18 +20,16 @@ body {
   color: grey;
   font-weight: 200;
   font-size: small;
-
-
 }
+
+
 
 .form-inline .form-control{
   display: block;
-
 }
 
 .ss-required-asterisk {
   color: red;
-
 }
 
 ul ul, ol ul {
