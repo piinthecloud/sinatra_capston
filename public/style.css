@@ -13,6 +13,8 @@ body {
   margin: 0;
   padding-bottom: 4rem;
   min-height: 550px;
+  font-family: 'Jura', sans-serif;
+
 }
 
 .content {
@@ -35,10 +37,30 @@ footer {
   padding: 1rem;
   background-color: black;
   height: 40px;
+  display: block;
+  color: white;
 
 }
 
+footer img{
+  margin-top: -8px;
+  height: 35px;
 
+  color: white;
+}
+
+.footer-right {
+  float: right;
+}
+
+a {
+  color: #c9302c;
+}
+
+a:focus, a:hover{
+  text-decoration: none;
+  color: grey;
+}
 /*=========================================================*/
 /*                          MAP                            */
 /*=========================================================*/
@@ -85,6 +107,7 @@ footer {
 .navbar {
   /*margin: 20px;*/
   margin-bottom: 0px;
+  font-size: x-large;
 }
 
 .nav-wrap {
@@ -131,6 +154,7 @@ footer {
 
 .dropdown#first {
   margin-top: 0px;
+
 }
 
 .dropdown#gender {

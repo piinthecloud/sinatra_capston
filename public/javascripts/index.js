@@ -159,7 +159,7 @@ $(document).ready(function() {
 
   function addNumInfo(info){
 
-  $( "#panel-home" ).html( "<strong>Number of Incidents: "+ info.length +"</strong>");
+  $( "#panel-home" ).html( "Number of Incidents: "+ info.length);
 
   }
 
@@ -174,7 +174,7 @@ $(document).ready(function() {
     $.each(data, function(i, val){
       if (val.race_ethnicity === input){
         x++
-        $( "#panel-home" ).html("<strong>Number of Incidents: "+ x +"</strong>"
+        $( "#panel-home" ).html("Number of Incidents: "+ x
         );
       }
     })
@@ -187,7 +187,7 @@ $(document).ready(function() {
       if (val.victim_gender === input){
         totalNum++
         $( "#panel-home" ).html(
-          "<p><strong>Number of Incidents: "+ totalNum +"</strong></p>"
+          "<p>Number of Incidents: "+ totalNum +"</p>"
         );
       }
     })
