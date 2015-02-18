@@ -110,6 +110,11 @@ a:focus, a:hover{
   font-family: 'Jura', sans-serif;
 }
 
+.navbar-inverse {
+  border-radius: 4;
+}
+
+
 .nav-wrap {
 
   margin: 20px;
