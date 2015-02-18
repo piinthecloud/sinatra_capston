@@ -58,6 +58,7 @@ $(document).ready(function() {
           });
 
           $( "#clear_data" ).click(function(event) {
+            markersTwo.clearLayers();
             map.addLayer(markers);
             addNumInfo(data);
             $( "#info" ).html("All Incidents");
@@ -86,7 +87,7 @@ $(document).ready(function() {
           opacity: 1,
           color: 'white',
           dashArray: '3',
-          fillOpacity: 0.6
+          fillOpacity: 0.8
         };
       }
 
