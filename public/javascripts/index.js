@@ -49,23 +49,19 @@ $(document).ready(function() {
           map.addLayer(markers);
 
           $( "ul.dropdown-menu li" ).click(function(event) {
-
             map.removeLayer(markers);
+
             markersTwo.clearLayers();
+
             plotPoints(request.responseJSON,
             $(event.target).text().split('\n')[0])
-
           });
 
           $( "#clear_data" ).click(function(event) {
-
             map.addLayer(markers);
             addNumInfo(data);
             $( "#info" ).html("All Incidents");
-
           });
-
-
         }
       })
 
@@ -207,6 +203,7 @@ $(document).ready(function() {
       {
         addPanelInfoLocal(data, input)
       }
+
     addInfo(input)
     $.each(data,
       function(i, val){

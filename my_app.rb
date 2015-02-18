@@ -19,4 +19,8 @@ class MyApp < Sinatra::Base
     erb :about
   end
 
+  get "/api" do
+    erb :api
+  end
+
 end

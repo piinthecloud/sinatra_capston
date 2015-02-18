@@ -1,6 +1,41 @@
+/*
+* {
+  border: 1px solid pink;
+}
+*/
+
+html {
+  height: 100%;
+}
 
 body {
-  margin: 20px;
+  position: relative;
+  margin: 0;
+  padding-bottom: 4rem;
+  min-height: 550px;
+}
+
+.content {
+
+  padding: 10px;
+  margin: 34;
+  margin-top: 0px;
+  border-top: none;
+  /*border: 1px solid rgb(210, 210, 210);*/
+  min-height: 450px;
+  box-shadow: 0px 5px 24px #888888, inset 0 8px 8px -8px #888888;
+
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: black;
+  height: 40px;
+
 }
 
 
@@ -38,9 +73,38 @@ body {
   height: 50px;
 }
 
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-  margin-left: -30px;
+
+.navbar {
+  /*margin: 20px;*/
+  margin-bottom: 0px;
 }
+
+.nav-wrap {
+
+  margin: 20px;
+  margin-bottom: -1px;
+
+}
+
+.triangle-right {
+  width: 0px;
+  height: 0px;
+  border-top: 14px solid grey;
+  border-right: 14px solid transparent;
+  float: right;
+  margin-top: -2px;
+}
+
+.triangle-left {
+  width: 0px;
+  height: 0px;
+  border-top: 14px solid grey;
+  border-left: 14px solid transparent;
+  float: left;
+  margin-top: -2px;
+}
+
+
 
 /*=========================================================*/
 /*                          INFO                           */
@@ -71,8 +135,7 @@ body {
 }
 
 .panel#home {
-
-  width: 320px;
+  width: auto;
 }
 
 /*=========================================================*/
@@ -80,7 +143,7 @@ body {
 /*=========================================================*/
 
 .help_text{
-  margin: 40px;
+  margin: 20px;
   max-width: 1000px;
 }
 
