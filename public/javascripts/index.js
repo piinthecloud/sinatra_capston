@@ -113,26 +113,15 @@ $(document).ready(function() {
       }).addTo(map);
 
       map.on('zoomend', function (){
-        if (map.getZoom() > 6  && map.hasLayer(geojson) == true)
-        {
-          map.removeLayer(geojson)
-        }
-        if (map.getZoom() < 6 && map.hasLayer(geojson) == false)
-        {
-          map.addLayer(geojson);
-        }
-
-
+        if (map.getZoom() > 7  && map.hasLayer(geojson) == true)
+          {
+            map.removeLayer(geojson)
+          }
+        if (map.getZoom() < 7 && map.hasLayer(geojson) == false)
+          {
+            map.addLayer(geojson);
+          }
       });
-
-      // map.on('zoomstart', function (){
-      //   if (map.getZoom() < 6 && map.hasLayer(geojson) == false)
-      //   {
-      //     map.addLayer(geojson);
-      //   }
-      //
-      // });
-
     }
   })
 
