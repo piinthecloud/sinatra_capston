@@ -92,7 +92,7 @@ $(document).ready(function() {
       }
 
 
-      L.geoJson(statesData,{style:style}).addTo(map);
+      // L.geoJson(statesData,{style:style}).addTo(map);
 
       // click to zoom on state
       function zoomToFeature(e){
@@ -105,10 +105,33 @@ $(document).ready(function() {
         });
       }
 
+
+
       geojson = L.geoJson(statesData, {
         style: style,
-        onEachFeature: onEachFeature
+        onEachFeature: onEachFeature,
       }).addTo(map);
+
+      map.on('zoomend', function (){
+        if (map.getZoom() > 6  && map.hasLayer(geojson) == true)
+        {
+          map.removeLayer(geojson)
+        }
+        if (map.getZoom() < 6 && map.hasLayer(geojson) == false)
+        {
+          map.addLayer(geojson);
+        }
+
+
+      });
+
+      // map.on('zoomstart', function (){
+      //   if (map.getZoom() < 6 && map.hasLayer(geojson) == false)
+      //   {
+      //     map.addLayer(geojson);
+      //   }
+      //
+      // });
 
     }
   })
@@ -118,7 +141,7 @@ $(document).ready(function() {
 
 
   var layer = new L.StamenTileLayer("toner");
-  var map = L.map('map').setView([37.8, -96], 4);
+  var map = L.map('map').setView([37.8, -96], 3);
   map.addLayer(layer);
 
 
