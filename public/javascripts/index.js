@@ -10,12 +10,15 @@ $(document).ready(function() {
 
       var request =  $.ajax({
         // url: 'http://localhost:3000/',
+        start: $( "#load" ).append( '<img src="/img/ajax-loader.gif" />'),
         url: 'http://54.213.76.49/',
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
-        success: function(data){
+        success:function(data){
           addNumInfo(data);
+          $("#load").remove();
+
 
           var markers = new L.MarkerClusterGroup({
             maxClusterRadius: 30,

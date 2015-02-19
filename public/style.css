@@ -65,10 +65,22 @@ a:focus, a:hover{
 /*=========================================================*/
 #map {
 
-   height: 70%;
-   border: 2px;
-   border-color: grey;
-   margin-bottom: 10px;
+  height: 400px;
+  border: 2px;
+  border-color: grey;
+  margin-bottom: 10px;
+  padding-left: 45%;
+  padding-top: 160;
+
+}
+
+#load {
+
+
+  z-index: 1000000;
+  position: absolute;
+
+
 
 }
 
