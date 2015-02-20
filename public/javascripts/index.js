@@ -27,43 +27,29 @@ $(document).ready(function() {
             zoomToBoundsOnClick: true
           });
 
-          $.each(request.responseJSON, function(i, val){
-            markers.addLayer(new L.circleMarker( [val.lat, val.lng], {
-              radius: 5,
-              fillColor: "#f03",
-              color: "#000",
-              weight: 2,
-              opacity: .7,
-              fillOpacity: 0.8
-            })
-            .bindPopup(
-              "<img class='pop_image' src="+ val.image + ">"
-              +"<p>" + val.victim_name + "</p>"
-              +"<div class='pop'>"
-              +"<p>City: " + val.city + "</p>"
-              +"<p>Race: " + val.race + "</p>"
-              +"<p>Date: " + val.date_searched + "</p>"
-              +"<p>Gender: " + val.victim_gender + "</p>"
-              +"</div>")
-            );
 
+
+          $.each(request.responseJSON, function(i, val){
+            drawMarkers(val, markers);
           });
 
           map.addLayer(markers);
 
           $( "ul.dropdown-menu li" ).click(function(event) {
-            map.removeLayer(markers);
 
             markersTwo.clearLayers();
+            map.removeLayer(markers);
 
             plotPoints(request.responseJSON,
             $(event.target).text().split('\n')[0])
+
           });
 
           $( "#clear_data" ).click(function(event) {
             markersTwo.clearLayers();
             map.addLayer(markers);
             addNumInfo(data);
+            map.setView([37.8, -96], 4)
             $( "#info" ).html("All Incidents");
           });
         }
@@ -94,9 +80,6 @@ $(document).ready(function() {
         };
       }
 
-
-      // L.geoJson(statesData,{style:style}).addTo(map);
-
       // click to zoom on state
       function zoomToFeature(e){
         map.fitBounds(e.target.getBounds());
@@ -107,8 +90,6 @@ $(document).ready(function() {
           click: zoomToFeature
         });
       }
-
-
 
       geojson = L.geoJson(statesData, {
         style: style,
@@ -133,7 +114,7 @@ $(document).ready(function() {
 
 
   var layer = new L.StamenTileLayer("toner");
-  var map = L.map('map').setView([37.8, -96], 3);
+  var map = L.map('map').setView([37.8, -96], 4);
   map.addLayer(layer);
 
 
@@ -146,8 +127,8 @@ $(document).ready(function() {
     zoomToBoundsOnClick: true
   });
 
-  function drawMarkers(val){
-    markersTwo.addLayer(new L.circleMarker( [val.lat, val.lng], {
+  function drawMarkers(val, layer){
+    layer.addLayer(new L.circleMarker( [val.lat, val.lng], {
       radius: 5,
       fillColor: "#f03",
       color: "#000",
@@ -163,6 +144,7 @@ $(document).ready(function() {
       +"<p>Race: " + val.race + "</p>"
       +"<p>Date: " + val.date_searched + "</p>"
       +"<p>Gender: " + val.victim_gender + "</p>"
+      +"<p><a href="+ val.source_link +">Source Link</a></p>"
       +"</div>")
     );
 
@@ -179,7 +161,7 @@ $(document).ready(function() {
   }
 
   function resetMarkers(val){
-    drawMarkers(val);
+    drawMarkers(val, markersTwo);
     map.addLayer(markersTwo);
   }
 

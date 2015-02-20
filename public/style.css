@@ -75,13 +75,8 @@ a:focus, a:hover{
 }
 
 #load {
-
-
   z-index: 1000000;
   position: absolute;
-
-
-
 }
 
 .pop_image {
@@ -185,6 +180,15 @@ a:focus, a:hover{
 
 .panel#home {
   width: auto;
+}
+
+.popup-info {
+  color: grey;
+  position: absolute;
+
+  bottom: -130px;
+  font-size: 13px;
+
 }
 
 /*=========================================================*/
