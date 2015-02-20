@@ -144,7 +144,7 @@ $(document).ready(function() {
       +"<p>Race: " + val.race + "</p>"
       +"<p>Date: " + val.date_searched + "</p>"
       +"<p>Gender: " + val.victim_gender + "</p>"
-      +"<p><a href="+ val.source_link +"target = 'blank'>Source Link</a></p>"
+      +"<p><a target='blank' href="+ val.source_link +'>Source Link</a></p>'
       +"</div>")
     );
 
