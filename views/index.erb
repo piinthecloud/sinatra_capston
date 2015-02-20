@@ -6,64 +6,104 @@
 
 
 <div class="row map-info">
+
   <div class="col-md-7 col">
     <div class ="map-wrap">
-    <div id="map" style="z-index: 1;">
-      <div id="load"></div>
+      <div id="map" style="z-index: 1;">
+        <div id="load"></div>
+
+
+      </div>
+      <div class ='popup-info'>
+        <p>Click on a point to get more information about the incident.</p>
+      </div>
     </div>
   </div>
-
-  </div>
-
 
   <div class="col-md-4">
     <div class ="wrap">
-    <div class="dropdown" id="first">
-      <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-        Race
-        <span class="caret"></span>
+      <div class="dropdown" id="first">
+        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          Race
+          <span class="caret"></span>
+        </button>
 
-      </button>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">American Indian or Alaska Native</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Asian</a></li>
-        <li id= "aa" role="presentation"><a role="menuitem" tabindex="-1" href="#">Black or African American</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Hispanic or Latino origin</a></li>
-        <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> Native Hawaiian or Other Pacific Islander</a></li> -->
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">White</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Unknown</a></li>
-      </ul>
-    </div>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">
+              American Indian or Alaska Native
+            </a>
+            </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">
+              Asian
+            </a>
+          </li>
+          <li id= "aa" role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">
+              Black or African American
+            </a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">
+              Hispanic or Latino origin
+            </a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">
+              White
+            </a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">
+              Unknown
+            </a>
+            </li>
+        </ul>
+      </div>
 
-    <div class="dropdown" id ="gender">
-      <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-        Gender
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Female</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Male</a></li>
-      </ul>
-    </div>
+      <div class="dropdown" id ="gender">
+        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          Gender
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">
+              Female
+            </a>
+          </li>
+          <li role="presentation">
+            <a role="menuitem" tabindex="-1" href="#">
+              Male
+            </a>
+          </li>
+        </ul>
+      </div>
 
 
-    <div id="info"> All Incidents</div>
-    <div  class="panel panel-danger" id="home">
-      <div class="panel-heading">
-        <h3 class="panel-title">By the Numbers</div>
-          <div class="panel-body" id="panel-home">
-            &nbsp
+      <div id="info"> All Incidents</div>
+
+
+
+      <div  class="panel panel-danger" id="home">
+        <div class="panel-heading">
+          <h3 class="panel-title">By the Numbers</div>
+            <div class="panel-body" id="panel-home">
+              &nbsp
+            </div>
+
           </div>
 
-    </div>
-    <button type = "button" class="btn btn-default" id="clear_data" >
-      Clear Selection
-    </button>
-    <div class ='popup-info'>
-      Click on a point to get more information about the incident.
-    </div>
 
-  </div>
-</div>
+          <button type = "button" class="btn btn-default" id="clear_data" >
+            Clear Selection
+          </button>
+
+
+
+
+        </div>
+      </div>
 
 </div>

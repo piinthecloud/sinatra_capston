@@ -1,7 +1,5 @@
 $(document).ready(function() {
-///////
   var geo =  $.ajax({
-    // url: 'http://localhost:3000/geodata',
     url: 'http://54.213.76.49/geodata',
     type: 'GET',
     dataType: 'json',
@@ -9,7 +7,6 @@ $(document).ready(function() {
     success: function(data){
 
       var request =  $.ajax({
-        // url: 'http://localhost:3000/',
         start: $( "#load" ).append( '<img src="/img/ajax-loader.gif" />'),
         url: 'http://54.213.76.49/',
         type: 'GET',
@@ -18,7 +15,6 @@ $(document).ready(function() {
         success:function(data){
           addNumInfo(data);
           $("#load").remove();
-
 
           var markers = new L.MarkerClusterGroup({
             maxClusterRadius: 30,
@@ -118,14 +114,13 @@ $(document).ready(function() {
   map.addLayer(layer);
 
 
-
-
   var markersTwo = new L.MarkerClusterGroup({
     maxClusterRadius: 30,
     spiderfyOnMaxZoom: true,
     showCoverageOnHover: false,
     zoomToBoundsOnClick: true
   });
+
 
   function drawMarkers(val, layer){
     layer.addLayer(new L.circleMarker( [val.lat, val.lng], {
@@ -155,16 +150,13 @@ $(document).ready(function() {
   }
 
   function addNumInfo(info){
-
   $( "#panel-home" ).html( "Number of Incidents: "+ info.length);
-
   }
 
   function resetMarkers(val){
     drawMarkers(val, markersTwo);
     map.addLayer(markersTwo);
   }
-
 
   function addPanelInfoLocal(data, input){
     var x = 0
@@ -176,7 +168,6 @@ $(document).ready(function() {
       }
     })
   }
-
 
   function addGenderInfoLocal(data, input){
     var totalNum = 0
@@ -192,7 +183,6 @@ $(document).ready(function() {
 
 
   function plotPoints(data, input) {
-
     if (input === "Male" || input === "Female")
       {
         addGenderInfoLocal(data, input)
@@ -201,7 +191,6 @@ $(document).ready(function() {
       {
         addPanelInfoLocal(data, input)
       }
-
     addInfo(input)
     $.each(data,
       function(i, val){

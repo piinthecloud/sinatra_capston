@@ -23,7 +23,6 @@ body {
   margin: 34;
   margin-top: 0px;
   border-top: none;
-  /*border: 1px solid rgb(210, 210, 210);*/
   min-height: 450px;
   box-shadow: 0px 5px 24px #888888, inset 0 8px 8px -8px #888888;
 
@@ -52,14 +51,68 @@ footer img{
   float: right;
 }
 
+.footer-left {
+  float: left;
+}
+
+footer a {
+  color: #c9302c;
+  margin-right: 10px;
+}
+
 a {
   color: #c9302c;
 }
+
 
 a:focus, a:hover{
   text-decoration: none;
   color: grey;
 }
+
+div.toggler {
+  background:black;
+  cursor:pointer;
+  margin-left: 10px;
+  display:inline-block;
+  }
+div.toggler div {
+  display:none;
+  position: absolute;
+  right: 0;
+  bottom: 40px;
+  left: 0;
+  padding: 1rem;
+  background-color: rgba(0,0,0, .7);
+  text-align: center;
+  height: 40px;
+  color: white;
+  font-family: 'Jura', sans-serif;
+  z-index:1000;
+ }
+
+ .red{
+   color: red;
+   font-size: large;
+ }
+
+ .toggler a{
+   color: white;
+   margin-right:0px;
+
+ }
+
+ .toggler a:focus, a:hover{
+   text-decoration: none;
+   color: red;
+ }
+
+ .toggler p{
+   display:inline-block;
+   margin-top:0px;
+   margin-bottom:0px;
+
+ }
 /*=========================================================*/
 /*                          MAP                            */
 /*=========================================================*/
@@ -89,7 +142,8 @@ a:focus, a:hover{
 
 }
 
-.leaflet-popup-content p{
+.leaflet-popup-content p
+{
   margin:2px !important;
 }
 
@@ -99,6 +153,10 @@ a:focus, a:hover{
 .leaflet-control-attribution
 {
   display: none;
+}
+
+.leaflet-left .leaflet-control {
+width: 26px;
 }
 
 /*=========================================================*/
@@ -184,7 +242,7 @@ a:focus, a:hover{
 
 .popup-info {
   color: grey;
-  position: absolute;
+  /*position: absolute;*/
 
   bottom: -130px;
   font-size: 13px;
